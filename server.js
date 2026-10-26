@@ -829,8 +829,15 @@ function ruPlateDecode(plate) {
 }
 
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-//  HEALTH
+//  ROOT + HEALTH
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+app.get('/', (_, res) => res.json({
+  name: 'OSINT Core API',
+  status: 'online',
+  version: '1.0.0',
+  endpoints: ['/health','/api/phone','/api/iin','/api/email','/api/username','/api/domain','/api/ip','/api/name','/api/geo','/api/plate'],
+}));
+
 app.get('/health', (_, res) => res.json({
   status: 'ok',
   version: '1.0.0',
